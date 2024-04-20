@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Your Requests</h2>
+    <ul class="list-group">
+        {% for request in requests %}
+            <li class="list-group-item">
+                <a href="{% url 'view_request' request.id %}">{{ request.service_type }} - {{ request.created_at|date:"D, d M Y" }}</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No requests found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

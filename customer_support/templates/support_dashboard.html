@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Support Dashboard</h2>
+    <ul class="list-group">
+        {% for request in open_requests %}
+            <li class="list-group-item">
+                Request ID: {{ request.id }} - {{ request.service_type }}
+                <a href="{% url 'handle_request' request.id %}" class="btn btn-primary float-right">Handle</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No open requests.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
