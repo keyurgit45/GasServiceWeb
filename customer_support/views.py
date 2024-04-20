@@ -68,7 +68,7 @@ def is_support_staff(user):
 @login_required
 @user_passes_test(is_support_staff)
 def support_dashboard(request):
-    open_requests = ServiceRequest.objects.filter(status='OPEN').order_by('-created_at').reverse()
+    open_requests = ServiceRequest.objects.exclude(status='CLOSED').order_by('-created_at').reverse()
     return render(request, 'support_dashboard.html', {'open_requests': open_requests})
 
 @login_required

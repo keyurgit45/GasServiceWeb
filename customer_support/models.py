@@ -15,7 +15,7 @@ class ServiceRequest(models.Model):
     document = models.FileField(upload_to='documents/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     resolved_at = models.DateTimeField(null=True, blank=True)
-    status = models.CharField(max_length=10, default='OPEN', choices=(('OPEN', 'Open'), ('CLOSED', 'Closed')))
+    status = models.CharField(max_length=15, default='OPEN', choices=(('OPEN', 'Open'), ('IN-PROGRESS', 'In-Progress'), ('CLOSED', 'Closed')))
 
     class Meta:
         indexes = [
