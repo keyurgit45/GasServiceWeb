@@ -10,8 +10,8 @@
             <label for="status">Update Status:</label>
             <select id="status" name="status">
                 <option value="Open" {% if request_detail.status == 'Open' %}selected{% endif %}>Open</option>
-                <option value="In Progress" {% if request_detail.status == 'In Progress' %}selected{% endif %}>In Progress</option>
-                <option value="Resolved" {% if request_detail.status == 'Resolved' %}selected{% endif %}>Resolved</option>
+                <option value="In-Progress" {% if request_detail.status == 'In-Progress' %}selected{% endif %}>In Progress</option>
+                <option value="Closed" {% if request_detail.status == 'Closed' %}selected{% endif %}>Closed</option>
             </select>
         </div>
         <button type="submit" class="btn btn-success">Update</button>

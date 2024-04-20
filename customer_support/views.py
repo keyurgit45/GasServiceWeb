@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate
 from .forms import ServiceRequestForm, SignUpForm
 from .models import ServiceRequest
 from django.http import HttpResponse
+from datetime import datetime
 
 # home
 def home(request):
@@ -68,7 +69,7 @@ def is_support_staff(user):
 @login_required
 @user_passes_test(is_support_staff)
 def support_dashboard(request):
-    open_requests = ServiceRequest.objects.exclude(status='CLOSED').order_by('-created_at').reverse()
+    open_requests = ServiceRequest.objects.exclude(status='Closed').order_by('-created_at').reverse()
     return render(request, 'support_dashboard.html', {'open_requests': open_requests})
 
 @login_required
@@ -77,6 +78,8 @@ def handle_request(request, request_id):
     request_detail = ServiceRequest.objects.get(id=request_id)
     if request.method == 'POST':
         request_detail.status = request.POST.get('status')
+        if request_detail.status == 'Closed':
+            request_detail.resolved_at = datetime.now()
         request_detail.save()
         return redirect('support_dashboard')
     return render(request, 'handle_request.html', {'request_detail': request_detail})
