@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from customer_support.views import home, signup, submit_request, view_request, view_requests, support_dashboard, handle_request, delete_request
 
 urlpatterns = [
@@ -34,3 +36,6 @@ urlpatterns = [
     path('support/dashboard/', support_dashboard, name='support_dashboard'),
     path('support/handle_request/<int:request_id>/', handle_request, name='handle_request'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

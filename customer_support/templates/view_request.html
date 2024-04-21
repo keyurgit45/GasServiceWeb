@@ -1,32 +1,43 @@
 <!-- view_request.html -->
-{% extends 'base.html' %}
-
-{% block content %}
-<br>
+{% extends 'base.html' %} {% block content %}
+<br />
 <h2>Request Details</h2>
 <div class="card">
-    <div class="card-header">
-        Request #{{ service_request.id }}
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">{{ service_request.service_type }}</h5>
-        <p class="card-text">{{ service_request.description }}</p>
-        <p class="card-text"><strong>Status:</strong> {{ service_request.status }}</p>
-        <p class="card-text"><strong>Submitted At:</strong> {{ service_request.created_at }}</p>
-        {% if service_request.resolved_at %}
-        <p class="card-text"><strong>Resolved At:</strong> {{ service_request.resolved_at }}</p>
-        {% endif %}
-        {% if service_request.document %}
-            <p class="card-text"><strong>Document:</strong></p>
-            <a href="{{ service_request.document.url }}" target="_blank">View Document</a>
-                {% if service_request.document.url|lower|slice:"-3:" in "jpg,jpeg,png,gif" %}
-                <div><img src="{{ service_request.document.url }}" alt="Uploaded Document" style="max-width: 100%; margin-top: 10px;"></div>
-                {% endif %}
-        {% endif %} 
-        <form action="{% url 'delete_request' service_request.id %}" method="post" style="margin-top: 20px;">
-            {% csrf_token %}
-            <input type="submit" value="Delete Request" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this request?');">
-        </form>
-    </div>
+  <div class="card-header">Request #{{ service_request.id }}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ service_request.service_type }}</h5>
+    <p class="card-text">{{ service_request.description }}</p>
+    <p class="card-text">
+      <strong>Status:</strong> {{ service_request.status }}
+    </p>
+    <p class="card-text">
+      <strong>Submitted At:</strong> {{ service_request.created_at }}
+    </p>
+    {% if service_request.resolved_at %}
+    <p class="card-text">
+      <strong>Resolved At:</strong> {{ service_request.resolved_at }}
+    </p>
+    {% endif %} {% if service_request.document %}
+    <p class="card-text">
+      <strong>Document:  </strong
+      ><a href="{{ service_request.document.url }}" target="_blank"
+        >View Document</a
+      >
+    </p>
+     {% endif %}
+    <form
+      action="{% url 'delete_request' service_request.id %}"
+      method="post"
+      style="margin-top: 20px"
+    >
+      {% csrf_token %}
+      <input
+        type="submit"
+        value="Delete Request"
+        class="btn btn-danger"
+        onclick="return confirm('Are you sure you want to delete this request?');"
+      />
+    </form>
+  </div>
 </div>
 {% endblock %}

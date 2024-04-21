@@ -12,7 +12,7 @@ class ServiceRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     service_type = models.CharField(max_length=20, choices=SERVICE_CHOICES)
     description = models.TextField()
-    document = models.FileField(upload_to='documents/%Y/%m/%d/', blank=True, null=True)
+    document = models.FileField(upload_to='images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     resolved_at = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=15, default='Open', choices=(('OPEN', 'Open'), ('IN-PROGRESS', 'In-Progress'), ('CLOSED', 'Closed')))
