@@ -19,7 +19,8 @@ These instructions will get you a copy of the project up and running on your loc
 Before you begin, ensure you have the following installed:
 - Python (3.8 or newer)
 - pip (Python package manager)
-- Virtualenv (optional but recommended for environment management)
+- Virtualenv (optional)
+- Django python package
 
 ### Installation
 
