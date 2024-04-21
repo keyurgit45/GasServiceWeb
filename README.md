@@ -15,3 +15,6 @@ request, and attach files.
 2. Request tracking: The application would allow customers to track the status of their service
 requests. This would include the ability to see the status of the request, the date and time
 the request was submitted, and the date and time the request was resolved.
+
+### Note
+To create a support staff account, create a new group "SupportStaff" in Django admin and assign it to a particular user.
