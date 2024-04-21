@@ -9,10 +9,9 @@ This Django application provides a platform for customers of gas utilities to su
 
 ## Note
 To create a support staff account, create a new group "SupportStaff" in Django admin and assign it to a particular user.
+A regular user can create service requests and track requests. Only *support-staff* user can view requests and resolve them.
 
 ## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -20,7 +19,6 @@ Before you begin, ensure you have the following installed:
 - Python (3.8 or newer)
 - pip (Python package manager)
 - Virtualenv (optional)
-- Django python package
 
 ### Installation
 
@@ -53,14 +51,6 @@ Before you begin, ensure you have the following installed:
    python manage.py migrate
    ```
 
-5. **Create a Superuser**
-
-   To access the admin panel:
-
-   ```bash
-   python manage.py createsuperuser
-   ```
-
 ### Running the Application
 
 1. **Start the Development Server**
@@ -74,3 +64,10 @@ Before you begin, ensure you have the following installed:
 2. **Access the Application**
 
    Open your web browser and go to http://127.0.0.1:8000/ to start using the application.
+
+3. **Create a Superuser**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+   To access the admin panel, go to http://127.0.0.1:8000/admin/
