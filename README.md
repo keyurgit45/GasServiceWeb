@@ -12,15 +12,12 @@ To create a support staff account, create a new group "SupportStaff" in Django a
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Python (3.8 or newer)
 - pip (Python package manager)
 - Virtualenv (optional)
-- Django python package
 
 ### Installation
 
