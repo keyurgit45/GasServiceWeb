@@ -27,14 +27,14 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/keyurgit45/GasServiceWeb.git
-   cd gas_service
+   cd GasServiceWeb
    ```
 
 2. **Set up a Virtual Environment** (Optional)
 
    ```bash
    virtualenv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   source venv/bin/activate
    ```
 
 3. **Install Dependencies**
