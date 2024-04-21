@@ -9,6 +9,7 @@ This Django application provides a platform for customers of gas utilities to su
 
 ## Note
 To create a support staff account, create a new group "SupportStaff" in Django admin and assign it to a particular user.
+A regular user can create service requests and track requests. Only *support-staff* user can view requests and resolve them.
 
 ## Getting Started
 
